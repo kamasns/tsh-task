@@ -90,12 +90,18 @@ export const Products = () => {
             onChange={e => setTerm(e.target.value)}
           />
           <div className='checkbox-wrapper active'>
-            <label htmlFor='active'>Active</label>
-            <input className='checkbox' type='checkbox' id='active' onChange={() => setActive(!active)} />
+            <label htmlFor='active'>Active
+              <input className='checkbox' type='checkbox' id='active' onChange={() => setActive(!active)} />
+              <span className="custom-checkbox"></span>
+            </label>
+
           </div>
           <div className='checkbox-wrapper promo'>
-            <label htmlFor='promo'>Promo</label>
-            <input className='checkbox' type='checkbox' id='promo' onChange={() => setPromo(!promo)} />
+            <label htmlFor='promo'>Promo
+              <input className='checkbox' type='checkbox' id='promo' onChange={() => setPromo(!promo)} />
+              <span className="custom-checkbox"></span>
+            </label>
+
           </div>
           <button className='log-in-btn button-white'>
             <Link to={AppRoute.Login}>Log in</Link>

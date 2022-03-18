@@ -10,13 +10,21 @@ $gray: #B9BDCF;
 $dark-gray: #9194A5;
 $body-bg: #f2f2f2;
 
+//fonts
 $small-font: 14px;
 $normal-font: 18px;
 $big-font: 24px;
 
+//paddings
+$padding-small: 16px;
+$padding-medium: 24px;
+$padding-big: 32px;
 
+//fixed size
 $header-height: 144px;
 $container-width: 1200px;
+
+//radius
 $small-radius: 4px;
 $big-radius: 8px;
 $border-radius-top: $big-radius $big-radius 0 0;

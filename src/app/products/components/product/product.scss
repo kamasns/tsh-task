@@ -34,11 +34,11 @@
       left: 0;
       background-color: $orange;
       color: #fff;
-      padding: 4px 16px;
+      padding: 4px $padding-small;
     }
   }
   .content {
-    padding: 16px 16px 24px;
+    padding: $padding-small $padding-small $padding-medium;
     background-color: $white;
     height: 230px;
     border-radius: $border-radius-bottom;

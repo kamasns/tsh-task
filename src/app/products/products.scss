@@ -12,7 +12,7 @@ header {
 
   @include media-breakpoint(lg, max) {
     >.container {
-      padding: 53px 24px 32px;
+      padding: 53px $padding-medium $padding-big;
     }
 
     .logo {
@@ -47,11 +47,11 @@ header {
     height: 48px;
     border-radius: $big-radius;
     border: 1px solid #E0E2EA;
-    padding: 16px;
+    padding: $padding-small;
 
     @include media-breakpoint(lg) {
       width: 392px;
-      margin-right: 24px;
+      margin-right: $padding-medium;
     }
   }
 
@@ -65,14 +65,39 @@ header {
 
     label {
       order: 1;
-      margin-left: 8px;
-    }
+      padding-left: 32px;
+      position: relative;
 
-    .checkbox {
-      margin: 0;
-      width: 24px;
-      height: 24px;
-      align-items: center;
+      .checkbox {
+        @include size(0);
+        position: absolute;
+        opacity: 0;
+        margin: 0;
+
+        &:checked ~ .custom-checkbox {
+          background-color: $light-blue;
+          border-color: $light-blue;
+
+          &:after {
+            @include size(4px,10px);
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: 4px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+      .custom-checkbox {
+        @include size(24px);
+        @include absolute-vertical-center;
+        left: 0;
+        background-color: $white;
+        border: 1px solid $medium-gray;
+        border-radius: $small-radius;
+      }
     }
   }
 
@@ -87,10 +112,10 @@ header {
 
 .products-wrapper {
   > .container {
-    padding: 24px;
+    padding: $padding-medium;
 
     @include media-breakpoint(md) {
-      padding: 56px 24px;
+      padding: 56px $padding-medium;
     }
   }
 }
