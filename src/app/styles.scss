@@ -37,6 +37,11 @@ iframe {
   display: none;
 }
 
+h2 {
+  font-size: 30px;
+  line-height: 1.333;
+}
+
 .title {
   @include normal-font;
   color: $black;
@@ -56,8 +61,6 @@ iframe {
   border: 1px solid;
   text-align: center;
   transition: all 0.3s;
-
-
 }
 
 .button-blue {
@@ -76,6 +79,14 @@ iframe {
     background-color: $dark-gray;
     border-color: $dark-gray;
   }
+}
+
+.input-field {
+  height: 48px;
+  border-radius: $big-radius;
+  border: 1px solid #E0E2EA;
+  padding: $padding-small;
+  width: 100%;
 }
 
 .button-white {

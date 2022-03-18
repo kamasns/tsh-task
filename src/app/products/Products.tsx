@@ -84,7 +84,7 @@ export const Products = () => {
           <div className='logo'>join.tsh.io</div>
           <input
             type='text'
-            className='search-bar'
+            className='search-bar input-field'
             placeholder='search'
             value={term}
             onChange={e => setTerm(e.target.value)}

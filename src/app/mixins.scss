@@ -37,6 +37,10 @@
   line-height: 1.67;
 }
 
+@mixin input {
+
+}
+
 $breakpoints: (
   "sm" : 576px,
   "md" : 768px,
