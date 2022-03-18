@@ -1,0 +1,16 @@
+@import "../../../mixins";
+
+.not-found {
+  @include size(100%, 344px);
+  @include flex-center;
+
+  max-width: 600px;
+  background-color: $white;
+  border-radius: $big-radius;
+  flex-direction: column;
+  margin: auto;
+
+  img {
+    margin-bottom: 22px;
+  }
+}

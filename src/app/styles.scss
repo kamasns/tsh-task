@@ -1,0 +1,109 @@
+@import 'mixins';
+
+body {
+  @include small-font;
+
+  margin: 0;
+  background-color: $body-bg;
+
+  & * {
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.container {
+  display: flex;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  flex-wrap: wrap;
+
+  //@include media-breakpoint('lg', max){
+  //  padding: 0 24px;
+  //}
+}
+.row {
+  margin: 0 -14px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+iframe {
+  display: none;
+}
+
+.title {
+  @include normal-font;
+  color: $black;
+  margin-bottom: 8px;
+}
+
+.description {
+  @include small-font;
+  color: $dark-gray;
+}
+
+%button {
+  @include small-font;
+  border-radius: $small-radius;
+  padding: 11px 30px;
+  cursor: pointer;
+  border: 1px solid;
+  text-align: center;
+  transition: all 0.3s;
+
+
+}
+
+.button-blue {
+  @extend %button;
+
+  background: $light-blue;
+  border-color: $light-blue;
+  color: $white;
+
+  &:hover {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+  }
+
+  &:disabled {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+  }
+}
+
+.button-white {
+  @extend %button;
+
+  background-color: $white;
+  color: $light-blue;
+  border-color: $light-blue;
+
+  a {
+    color: $light-blue;
+    text-decoration: none;
+  }
+
+  &:hover {
+    border-color: $dark-blue;
+    color: $dark-blue;
+    a {
+      color: $dark-blue;
+    }
+  }
+
+  &:disabled {
+    background-color:$white;
+    border-color: $dark-gray;
+    a {
+      color: $dark-gray;
+    }
+  }
+
+}

@@ -1,0 +1,65 @@
+@import '../../../mixins.scss';
+
+.product {
+  width: 100%;
+  padding: 0 14px;
+  margin-bottom: 32px;
+
+  @include media-breakpoint(sm){
+    max-width: 50%;
+  }
+
+  @include media-breakpoint(md){
+    max-width: 33.333%;
+  }
+
+  @include media-breakpoint(lg){
+    max-width: 25%;
+  }
+
+  .img-box {
+    position: relative;
+    height: 170px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius-top;
+      object-fit: cover;
+    }
+
+    .promo-label {
+      position: absolute;
+      top: 16px;
+      left: 0;
+      background-color: $orange;
+      color: #fff;
+      padding: 4px 16px;
+    }
+  }
+  .content {
+    padding: 16px 16px 24px;
+    background-color: $white;
+    height: 230px;
+    border-radius: $border-radius-bottom;
+    display: flex;
+    flex-direction: column;
+
+
+    .rating {
+      display: flex;
+      margin-bottom: 18px;
+      margin-top: auto;
+
+      img {
+        padding: 0 5px;
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  button {
+
+  }
+}

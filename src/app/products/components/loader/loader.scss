@@ -1,0 +1,19 @@
+@import '../../../mixins';
+
+.loader {
+  height: calc(100vh - #{$header-height});
+
+  img {
+    @include absolute-center;
+    animation: rotation 1200ms infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+  }
+}
