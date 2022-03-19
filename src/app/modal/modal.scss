@@ -21,7 +21,7 @@
     border-radius: $big-radius;
     overflow: auto;
 
-    @media (max-height: 500px) {
+    @include media-breakpoint(landscape, max, height) {
       max-height: 80vh;
     }
 

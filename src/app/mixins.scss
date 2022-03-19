@@ -40,19 +40,20 @@
 }
 
 $breakpoints: (
-        "sm" : 576px,
-        "md" : 768px,
-        "lg": 992px,
-        "xl": 1200px
+  "sm" : 576px,
+  "md" : 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "landscape": 500px, // for smartphones horizontally
 );
 
-@mixin media-breakpoint($width, $type: min ) {
+@mixin media-breakpoint($width, $type: min, $dimension: width ) {
   @if map_has_key($breakpoints, $width) {
     $width: map_get($breakpoints, $width);
     @if $type == max {
       $width: $width - 1px;
     }
-    @media only screen and (#{$type}-width: $width) {
+    @media only screen and (#{$type}-#{$dimension}: $width) {
       @content;
     }
   }

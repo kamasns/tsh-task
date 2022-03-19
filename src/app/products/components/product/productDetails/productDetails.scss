@@ -9,13 +9,14 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+    filter: drop-shadow(0px 0px 1px #fff); //icon is barely visible on dark images
   }
 
   .img-box {
     height: 354px;
     width: 100%;
 
-    @media (max-height: 500px) {
+    @include media-breakpoint(landscape, max, height) {
       height: 200px;
     }
 

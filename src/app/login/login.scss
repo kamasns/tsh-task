@@ -33,7 +33,7 @@
       @include big-font;
       margin-bottom: 103px;
 
-      @media (max-height: 500px) {
+      @include media-breakpoint(landscape, max, height) {
         margin-bottom: 30px;
       }
 
