@@ -9,7 +9,7 @@ const Product = ({ image, name, description, rating, promo, active }: Omit<IItem
 
   const [showModal, setShowModal] = useState<boolean>(false)
 
-  const handleModal = () => {
+  const handleModal = ():void => {
     setShowModal(!showModal)
   }
 

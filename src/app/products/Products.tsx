@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { AppRoute } from '../../routing/AppRoute.enum';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+
 import { IItem, IMeta, IParams, IProducts } from './models/products.interface';
+import Header from './components/header/Header';
 import Product from './components/product/Product';
 import Loader from './components/loader/Loader';
 import NotFound from './components/notFound/NotFound';
@@ -17,7 +17,7 @@ export const Products = () => {
   const [active, setActive] = useState<boolean>(false);
   const [results, setResults] = useState<IProducts>();
   const [paginationConfig, setPaginationConfig] = useState<IMeta>();
-  const [paginationPage, setPaginationPage] = useState<number>(1)
+  const [paginationPage, setPaginationPage] = useState<number>(1);
 
   const ITEM_LIMIT = 8; // change this value to a lower value to test pagination
 
@@ -46,7 +46,7 @@ export const Products = () => {
       setDebouncedTerm(term);
       setActive(active);
       setPromo(promo);
-      setPaginationPage(1)
+      setPaginationPage(1);
     }, 750);
 
     return () => {
@@ -58,6 +58,17 @@ export const Products = () => {
     void getDataFromApi(params);
   }, [debouncedTerm, active, promo, paginationPage]);
 
+  const handlePromoCheckbox = () => {
+    setPromo(!promo);
+  };
+
+  const handleActiveCheckbox = () => {
+    setActive(!active);
+  };
+
+  const handleSearchTerm = (term: string) => {
+    setTerm(term);
+  };
 
   const renderedProducts = results?.items.length === 0
     ? <NotFound />
@@ -76,56 +87,36 @@ export const Products = () => {
     });
 
   const handlePaginationNav = (pageNumber: number) => {
-    setPaginationPage(pageNumber)
-  }
+    setPaginationPage(pageNumber);
+  };
 
   return (
     <>
-      <header>
-        <div className='container'>
-          <div className='logo'>join.tsh.io</div>
-          <input
-            type='text'
-            className='search-bar input-field'
-            placeholder='search'
-            value={term}
-            onChange={e => setTerm(e.target.value)}
-          />
-          <div className='checkbox-wrapper active'>
-            <label htmlFor='active'>Active
-              <input className='checkbox' type='checkbox' id='active' onChange={() => setActive(!active)} />
-              <span className='custom-checkbox' />
-            </label>
-
-          </div>
-          <div className='checkbox-wrapper promo'>
-            <label htmlFor='promo'>Promo
-              <input className='checkbox' type='checkbox' id='promo' onChange={() => setPromo(!promo)} />
-              <span className='custom-checkbox' />
-            </label>
-
-          </div>
-          <button className='log-in-btn button-white'>
-            <Link to={AppRoute.Login}>Log in</Link>
-          </button>
-        </div>
-      </header>
-
+      <Header
+        term={term}
+        handlePromoCheckbox={handlePromoCheckbox}
+        handleActiveCheckbox={handleActiveCheckbox}
+        handleSearchTerm={handleSearchTerm}
+      />
       <div className='products-wrapper'>
-        {renderedProducts ?
-          <div className='container'>
-            <div className='row'>
-              {renderedProducts}
+        {renderedProducts
+          ? (
+            <div className='container'>
+              <div className='row'>
+                {renderedProducts}
+              </div>
             </div>
-          </div>
+          )
           : <Loader />
         }
         {paginationConfig && paginationConfig.totalPages > 1
-          ? <Pagination
-            totalPages={paginationConfig.totalPages}
-            currentPage={paginationConfig.currentPage}
-            handlePaginationNav={handlePaginationNav}
-          />
+          ? (
+            <Pagination
+              totalPages={paginationConfig.totalPages}
+              currentPage={paginationConfig.currentPage}
+              handlePaginationNav={handlePaginationNav}
+            />
+          )
           : null
         }
       </div>
