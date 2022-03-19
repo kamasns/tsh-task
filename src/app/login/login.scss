@@ -7,7 +7,7 @@
   .col-left {
     display: none;
 
-    @include media-breakpoint(lg){
+    @include media-breakpoint(lg) {
       display: block;
       width: 100%;
       max-width: 42.5%;
@@ -18,25 +18,26 @@
       object-fit: cover;
     }
   }
+
   .col-right {
     background-color: $white;
     width: 100%;
     padding: 40px $spacing-medium;
     overflow: auto;
 
-    @include media-breakpoint(lg){
-      padding: 52px  212px 52px 128px;
+    @include media-breakpoint(lg) {
+      padding: 52px 212px 52px 128px;
     }
 
     .logo {
       @include big-font;
       margin-bottom: 103px;
 
-      @media (max-height: 500px){
+      @media (max-height: 500px) {
         margin-bottom: 30px;
       }
 
-      @include media-breakpoint(lg){
+      @include media-breakpoint(lg) {
         margin-bottom: 235px;
       }
     }
@@ -46,22 +47,26 @@
       top: 30px;
       right: 30px;
     }
+
     form {
       margin-top: $spacing-xs;
 
       .form-control {
         margin-top: 22px;
+
         label {
           .input-field {
             margin-top: $spacing-xs;
           }
         }
       }
+
       .button-blue {
         margin-top: $spacing-xl;
         width: 100%;
         height: $input-height;
       }
+
       .pass-reset {
         margin-top: $spacing-small;
         color: $dark-gray;

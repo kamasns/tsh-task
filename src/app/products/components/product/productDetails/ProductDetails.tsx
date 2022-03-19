@@ -1,8 +1,9 @@
 import React, { MouseEventHandler } from 'react';
 import closeIcon from '../../../../assets/close.svg';
-import './productDetails.scss'
+import './productDetails.scss';
 
-const ProductDetails = ({
+const ProductDetails = (
+  {
     close,
     description,
     title,
@@ -16,8 +17,8 @@ const ProductDetails = ({
         <button className='close' onClick={close}><img src={closeIcon} alt='cross' /></button>
       </div>
       <div className='content'>
-        <h4 className="title">{title}</h4>
-        <p className="description">{description}</p>
+        <h4 className='title'>{title}</h4>
+        <p className='description'>{description}</p>
       </div>
     </div>
   );

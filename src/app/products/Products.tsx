@@ -56,7 +56,7 @@ export const Products = () => {
 
   useEffect(() => {
     void getDataFromApi(params);
-  }, [debouncedTerm,  active, promo, paginationPage]);
+  }, [debouncedTerm, active, promo, paginationPage]);
 
   const handlePromoCheckbox = () => {
     setPromo(!promo);

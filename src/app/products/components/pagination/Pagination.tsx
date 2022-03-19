@@ -3,12 +3,12 @@ import './pagination.scss';
 import { IMeta } from '../../models/products.interface';
 
 const Pagination = (
-    {
-      currentPage,
-      totalPages,
-      handlePaginationNav
-    }: Omit<IMeta, 'itemCount' | 'itemsPerPage' | 'totalItems'>
-  ) => {
+  {
+    currentPage,
+    totalPages,
+    handlePaginationNav
+  }: Omit<IMeta, 'itemCount' | 'itemsPerPage' | 'totalItems'>
+) => {
 
   const MAX_PAGINATION_ITEMS = 6;
   const highestUnavailableIndex = totalPages - 3;
@@ -16,7 +16,7 @@ const Pagination = (
   let lowestUnavailableIndex: number;
 
   if (currentPage >= highestUnavailableIndex) {
-    lowestUnavailableIndex =  currentPage - (currentPage - 7)  - (totalPages - currentPage);
+    lowestUnavailableIndex = currentPage - (currentPage - 7) - (totalPages - currentPage);
     skipAmount = currentPage === totalPages ? 3 : 2;
   } else {
     lowestUnavailableIndex = currentPage !== 1 ? currentPage - 1 : 0;
@@ -30,11 +30,10 @@ const Pagination = (
       if (currentPage >= highestUnavailableIndex) {
         if (index === currentPage - skipAmount) {
           liClass += 'dotted';
-        } else if ( index <= currentPage - lowestUnavailableIndex) {
+        } else if (index <= currentPage - lowestUnavailableIndex) {
           liClass += 'hidden';
         }
-      }
-      else {
+      } else {
         if (index > currentPage + skipAmount && index <= highestUnavailableIndex) {
           liClass += 'dotted';
         }

@@ -21,6 +21,7 @@ body {
   margin: 0 auto;
   padding: 0 $spacing-medium;
 }
+
 .row {
   margin: 0 -14px;
   display: flex;
@@ -47,6 +48,7 @@ h2 {
   @include small-font;
   color: $dark-gray;
 }
+
 .input-field {
   height: $input-height;
   border-radius: $big-radius;
@@ -96,14 +98,16 @@ h2 {
   &:hover {
     border-color: $dark-blue;
     color: $dark-blue;
+
     a {
       color: $dark-blue;
     }
   }
 
   &:disabled {
-    background-color:$white;
+    background-color: $white;
     border-color: $dark-gray;
+
     a {
       color: $dark-gray;
     }

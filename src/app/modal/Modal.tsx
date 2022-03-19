@@ -1,13 +1,13 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import './modal.scss';
 
-const Modal = ({ children}: {children: ReactNode}) => {
+const Modal = ({ children }: { children: ReactNode }) => {
   const portalDiv = document.getElementById('modal');
 
   if (!portalDiv) return null;
 
-  console.dir(portalDiv)
+  console.dir(portalDiv);
   return (
     createPortal(
       <div className='modal'>

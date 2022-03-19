@@ -3,7 +3,7 @@
 .modal {
   @include size(100vw, 100vh);
 
-  background-color: rgba(0,0,0, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -21,11 +21,11 @@
     border-radius: $big-radius;
     overflow: auto;
 
-    @media (max-height: 500px){
+    @media (max-height: 500px) {
       max-height: 80vh;
     }
 
-    @include media-breakpoint(sm, max){
+    @include media-breakpoint(sm, max) {
       max-width: calc(100vw - 48px);
       max-height: 80vh;
     }

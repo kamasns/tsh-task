@@ -10,11 +10,12 @@
     background-color: transparent;
     border: none;
   }
+
   .img-box {
     height: 354px;
     width: 100%;
 
-    @media (max-height: 500px){
+    @media (max-height: 500px) {
       height: 200px;
     }
 
@@ -24,18 +25,20 @@
       border-radius: $border-radius-top;
     }
   }
+
   .content {
     background-color: $white;
     padding: $spacing-medium;
     border-radius: $border-radius-bottom;
 
-    @include media-breakpoint(md){
+    @include media-breakpoint(md) {
       padding: $spacing-small $spacing-big $spacing-xl;
     }
 
     .title {
       @include big-font;
     }
+
     .description {
       @include normal-font;
       color: $dark-gray;
