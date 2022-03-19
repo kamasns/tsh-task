@@ -18,7 +18,7 @@ body {
   display: flex;
   max-width: 1248px;
   margin: 0 auto;
-  padding: 0 $padding-medium;
+  padding: 0 $spacing-medium;
   width: 100%;
   flex-wrap: wrap;
 
@@ -85,7 +85,7 @@ h2 {
   height: 48px;
   border-radius: $big-radius;
   border: 1px solid #E0E2EA;
-  padding: $padding-small;
+  padding: $spacing-small;
   width: 100%;
 }
 

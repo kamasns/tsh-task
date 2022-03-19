@@ -3,7 +3,7 @@
 .product {
   width: 100%;
   padding: 0 14px;
-  margin-bottom: 32px;
+  margin-bottom: $spacing-medium;
 
   @include media-breakpoint(sm){
     max-width: 50%;
@@ -15,6 +15,7 @@
 
   @include media-breakpoint(lg){
     max-width: 25%;
+    margin-bottom: $spacing-big;
   }
 
   .img-box {
@@ -34,11 +35,11 @@
       left: 0;
       background-color: $orange;
       color: #fff;
-      padding: 4px $padding-small;
+      padding: 4px $spacing-small;
     }
   }
   .content {
-    padding: $padding-small $padding-small $padding-medium;
+    padding: $spacing-small $spacing-small $spacing-medium;
     background-color: $white;
     height: 230px;
     border-radius: $border-radius-bottom;
@@ -48,7 +49,7 @@
 
     .rating {
       display: flex;
-      margin-bottom: 18px;
+      margin-bottom: $spacing-small;
       margin-top: auto;
 
       img {

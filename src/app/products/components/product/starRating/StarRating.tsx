@@ -1,6 +1,5 @@
 import React from 'react';
-import { Rating } from '../../../models/products.interface';
-
+import { Rating } from '../../../models/products.interface'
 import starIconFull from '../../../../assets/star-full.svg'
 import starIconEmpty from '../../../../assets/star-empty.svg'
 

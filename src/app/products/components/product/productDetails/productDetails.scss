@@ -28,11 +28,11 @@
   }
   .content {
     background-color: $white;
-    padding: $padding-medium;
+    padding: $spacing-medium;
     border-radius: $border-radius-bottom;
 
     @include media-breakpoint(md){
-      padding: $padding-small $padding-big 56px;
+      padding: $spacing-small $spacing-big $spacing-xl;
     }
 
     .title {

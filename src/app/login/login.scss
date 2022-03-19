@@ -53,17 +53,17 @@
         margin-top: 22px;
         label {
           .input-field {
-            margin-top: 8px;
+            margin-top: $spacing-xs;
           }
         }
       }
       .button-blue {
-        margin-top: 56px;
+        margin-top: $spacing-xl;
         width: 100%;
         height: 48px;
       }
       .pass-reset {
-        margin-top: 18px;
+        margin-top: $spacing-small;
         color: $dark-gray;
         display: block;
       }

@@ -11,8 +11,8 @@ header {
   }
 
   @include media-breakpoint(lg, max) {
-    >.container {
-      padding: 53px $padding-medium $padding-big;
+    > .container {
+      padding: 53px $spacing-medium $spacing-big;
     }
 
     .logo {
@@ -29,6 +29,7 @@ header {
 
     .checkbox-wrapper {
       order: 4;
+
       &.active {
         order: 3;
       }
@@ -44,7 +45,6 @@ header {
   }
 
   .search-bar {
-    @include input;
     width: 100%;
 
     &::placeholder {
@@ -54,7 +54,7 @@ header {
 
     @include media-breakpoint(lg) {
       width: 392px;
-      margin-right: $padding-medium;
+      margin-right: $spacing-medium;
     }
   }
 
@@ -82,7 +82,7 @@ header {
           border-color: $light-blue;
 
           &:after {
-            @include size(4px,10px);
+            @include size(4px, 10px);
             content: "";
             position: absolute;
             left: 9px;
@@ -93,6 +93,7 @@ header {
           }
         }
       }
+
       .custom-checkbox {
         @include size(24px);
         @include absolute-vertical-center;
@@ -106,19 +107,21 @@ header {
 
   .log-in-btn {
     margin-left: auto;
+    padding: 0;
 
     a {
-
+      display: block;
+      padding: 11px 30px;
     }
   }
 }
 
 .products-wrapper {
   > .container {
-    padding: $padding-medium;
+    padding: $spacing-medium $spacing-medium $spacing-small;
 
     @include media-breakpoint(md) {
-      padding: 56px $padding-medium;
+      padding: $spacing-xl $spacing-medium $spacing-medium;
     }
   }
 }

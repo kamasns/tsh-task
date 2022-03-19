@@ -1,6 +1,8 @@
+import { MouseEventHandler } from 'react';
+
 export interface IProducts {
   items: IItem[];
-  meta: IMeta;
+  meta: IMeta | undefined;
   links: ILinks;
 }
 
@@ -20,6 +22,7 @@ export interface IMeta {
   itemsPerPage: number;
   totalPages: number;
   currentPage: number;
+  handlePaginationNav? : any;
 }
 
 export interface ILinks {
@@ -29,4 +32,14 @@ export interface ILinks {
   last: string;
 }
 
-export type Rating = 0|1|2|3|4|5;
+export interface IParams {
+  search: string,
+  limit: number,
+  page: number,
+  promo: boolean,
+  active: boolean
+}
+
+export type Rating = 0 | 1 | 2 | 3 | 4 | 5;
+
+

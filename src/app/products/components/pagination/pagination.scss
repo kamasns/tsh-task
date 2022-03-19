@@ -1,0 +1,47 @@
+@import "../../../mixins";
+
+.pagination {
+  padding-bottom: 68px;
+
+  @include media-breakpoint(lg){
+    padding-bottom: $spacing-xl;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+    li {
+      color: $black;
+      padding: 0 $spacing-xs;
+      cursor: pointer;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.disabled {
+        color: $dark-gray;
+        pointer-events: none;
+      }
+
+      &.dotted {
+        font-size: 0;
+        pointer-events: none;
+
+        &:after {
+          content: '...';
+          font-size: 14px;
+        }
+      }
+      &.dotted ~ .dotted {
+        display: none;
+      }
+
+      &.active {
+        color: $light-blue
+      }
+    }
+  }
+}

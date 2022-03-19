@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import StarRating from './starRating/StarRating';
 import { IItem } from '../../models/products.interface';
-import './product.scss';
 import Modal from '../../../modal/Modal';
 import ProductDetails from './productDetails/ProductDetails';
-
+import './product.scss';
 
 const Product = ({ image, name, description, rating, promo, active }: Omit<IItem, 'id'>) => {
 
