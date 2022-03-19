@@ -52,11 +52,11 @@ export const Products = () => {
     return () => {
       clearTimeout(timerId);
     };
-  }, [term, active, promo]);
+  }, [term]);
 
   useEffect(() => {
     void getDataFromApi(params);
-  }, [debouncedTerm, active, promo, paginationPage]);
+  }, [debouncedTerm,  active, promo, paginationPage]);
 
   const handlePromoCheckbox = () => {
     setPromo(!promo);
