@@ -21,7 +21,7 @@
   .col-right {
     background-color: $white;
     width: 100%;
-    padding: 40px 24px;
+    padding: 40px $spacing-medium;
     overflow: auto;
 
     @include media-breakpoint(lg){
@@ -47,7 +47,7 @@
       right: 30px;
     }
     form {
-      margin-top: 7px;
+      margin-top: $spacing-xs;
 
       .form-control {
         margin-top: 22px;
@@ -60,7 +60,7 @@
       .button-blue {
         margin-top: $spacing-xl;
         width: 100%;
-        height: 48px;
+        height: $input-height;
       }
       .pass-reset {
         margin-top: $spacing-small;

@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../../../routing/AppRoute.enum';
+import './header.scss';
 
 type HeaderProps = {
   term: string,

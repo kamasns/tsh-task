@@ -8,8 +8,7 @@
   }
 
   ul {
-    display: flex;
-    justify-content: center;
+    @include flex-center(null, center);
     list-style: none;
 
     li {
@@ -31,8 +30,8 @@
         pointer-events: none;
 
         &:after {
+          @include small-font;
           content: '...';
-          font-size: 14px;
         }
       }
       &.dotted ~ .dotted {

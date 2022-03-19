@@ -2,7 +2,6 @@
 
 body {
   @include small-font;
-
   margin: 0;
   background-color: $body-bg;
 
@@ -16,15 +15,11 @@ body {
 
 .container {
   display: flex;
-  max-width: 1248px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: $container-width;
   margin: 0 auto;
   padding: 0 $spacing-medium;
-  width: 100%;
-  flex-wrap: wrap;
-
-  //@include media-breakpoint('lg', max){
-  //  padding: 0 24px;
-  //}
 }
 .row {
   margin: 0 -14px;
@@ -45,12 +40,19 @@ h2 {
 .title {
   @include normal-font;
   color: $black;
-  margin-bottom: 8px;
+  margin-bottom: $spacing-xs;
 }
 
 .description {
   @include small-font;
   color: $dark-gray;
+}
+.input-field {
+  height: $input-height;
+  border-radius: $big-radius;
+  border: 1px solid #E0E2EA;
+  padding: $spacing-small;
+  width: 100%;
 }
 
 %button {
@@ -65,7 +67,6 @@ h2 {
 
 .button-blue {
   @extend %button;
-
   background: $light-blue;
   border-color: $light-blue;
   color: $white;
@@ -81,17 +82,8 @@ h2 {
   }
 }
 
-.input-field {
-  height: 48px;
-  border-radius: $big-radius;
-  border: 1px solid #E0E2EA;
-  padding: $spacing-small;
-  width: 100%;
-}
-
 .button-white {
   @extend %button;
-
   background-color: $white;
   color: $light-blue;
   border-color: $light-blue;
@@ -116,5 +108,4 @@ h2 {
       color: $dark-gray;
     }
   }
-
 }

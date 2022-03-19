@@ -4,7 +4,6 @@ import starIconFull from '../../../../assets/star-full.svg'
 import starIconEmpty from '../../../../assets/star-empty.svg'
 
 const StarRating = ({ rating }: { rating: Rating }) => {
-
   const starEmpty = <img src={starIconEmpty} alt="Empty star icon" />
   const starFull = <img src={starIconFull} alt="Filled star icon" />
 

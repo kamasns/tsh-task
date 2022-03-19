@@ -1,14 +1,9 @@
 @import "variables";
 
-@mixin flex-center {
+@mixin flex-center($align: center, $justify: center) {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
+  align-items: $align;
+  justify-content: $justify;
 }
 
 @mixin absolute-center {
@@ -37,6 +32,10 @@
   line-height: 1.67;
 }
 
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
 
 $breakpoints: (
   "sm" : 576px,
