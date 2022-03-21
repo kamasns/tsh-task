@@ -45,7 +45,7 @@ const Pagination = (
     }
 
     if (currentPage === paginationPage) {
-      liClass += ' active';
+      liClass += 'active';
     }
     return liClass;
   }

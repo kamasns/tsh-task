@@ -13,7 +13,7 @@ const ProductDetails = (
   return (
     <div className='product-details'>
       <div className='img-box'>
-        <img src={image} />
+        <img src={image} alt="Sample image" />
         <button className='close' onClick={close}><img src={closeIcon} alt='cross' /></button>
       </div>
       <div className='content'>

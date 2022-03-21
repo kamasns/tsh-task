@@ -22,6 +22,7 @@ const Header = (
       <div className='container'>
         <div className='logo'>join.tsh.io</div>
         <input
+          id='search'
           type='text'
           className='search-bar input-field'
           placeholder='search'

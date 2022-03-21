@@ -16,7 +16,7 @@ const Product = ({ image, name, description, rating, promo, active }: Omit<IItem
   return (
     <div className='product'>
       <div className='img-box'>
-        <img src={image} alt='' />
+        <img src={image} alt='Sample image' />
         {promo ? <span className='promo-label'>Promo</span> : null}
       </div>
       <div className='content'>

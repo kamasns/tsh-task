@@ -10,7 +10,7 @@ const StarRating = ({ rating }: { rating: Rating }) => {
   return (
     <>
       {stars.map((star, index): JSX.Element => {
-        const content = index <= rating
+        const content = index  < rating
           ? <img src={starIconFull} alt='Filled star icon' />
           : <img src={starIconEmpty} alt='Empty star icon' />;
 

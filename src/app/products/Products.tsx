@@ -20,7 +20,7 @@ export const Products = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [fetchFail, setFetchFail] = useState<boolean>(false);
 
-  const ITEM_LIMIT = 8; // change this value to a lower value to test pagination
+  const ITEM_LIMIT = 8;
 
   const params = {
     search: debouncedTerm,
@@ -28,23 +28,6 @@ export const Products = () => {
     page: paginationPage,
     promo: promo,
     active: active
-  };
-
-  const getDataFromApi = async (params: IParams) => {
-    setLoading(true);
-    try {
-      const { data } = await axios.get('https://join-tsh-api-staging.herokuapp.com/products', {
-        params
-      });
-      setResults(data);
-      setPaginationConfig(data.meta);
-      setLoading(false);
-      setFetchFail(false);
-    } catch (err) {
-      console.error('Cannot fetch data.', err);
-      setFetchFail(true);
-      setLoading(false);
-    }
   };
 
   useEffect(() => {
@@ -59,6 +42,23 @@ export const Products = () => {
   }, [term]);
 
   useEffect(() => {
+    const getDataFromApi = async (params: IParams) => {
+      setLoading(true);
+      try {
+        const { data } = await axios.get('https://join-tsh-api-staging.herokuapp.com/products', {
+          params
+        });
+        setResults(data);
+        setPaginationConfig(data.meta);
+        setLoading(false);
+        setFetchFail(false);
+      } catch (err) {
+        console.error('Cannot fetch data.', err);
+        setFetchFail(true);
+        setLoading(false);
+      }
+    };
+
     void getDataFromApi(params);
   }, [debouncedTerm, active, promo, paginationPage]);
 
