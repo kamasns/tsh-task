@@ -1,20 +1,18 @@
-import React, { ChangeEventHandler } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../../../routing/AppRoute.enum';
 import './header.scss';
 
 type HeaderProps = {
   term: string,
-  handlePromoCheckbox: ChangeEventHandler<HTMLInputElement>,
-  handleActiveCheckbox: ChangeEventHandler<HTMLInputElement>,
-  handleSearchTerm: Function
+  handleCheckbox: (id: string) => void,
+  handleSearchTerm: (id: string) => void,
 }
 
 const Header = (
   {
     term,
-    handlePromoCheckbox,
-    handleActiveCheckbox,
+    handleCheckbox,
     handleSearchTerm
   }: HeaderProps) => {
   return (
@@ -31,14 +29,13 @@ const Header = (
         />
         <div className='checkbox-wrapper active'>
           <label htmlFor='active'>Active
-            <input className='checkbox' type='checkbox' id='active' onChange={handleActiveCheckbox} />
+            <input className='checkbox' type='checkbox' id='active' onChange={e=> handleCheckbox(e.target.id)} />
             <span className='custom-checkbox' />
           </label>
-
         </div>
         <div className='checkbox-wrapper promo'>
           <label htmlFor='promo'>Promo
-            <input className='checkbox' type='checkbox' id='promo' onChange={handlePromoCheckbox} />
+            <input className='checkbox' type='checkbox' id='promo' onChange={e=> handleCheckbox(e.target.id)} />
             <span className='custom-checkbox' />
           </label>
 
