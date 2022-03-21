@@ -1,5 +1,3 @@
-import { MouseEventHandler } from 'react';
-
 export interface IProducts {
   items: IItem[];
   meta: IMeta | undefined;
@@ -36,8 +34,8 @@ export interface IParams {
   search: string,
   limit: number,
   page: number,
-  promo: boolean,
-  active: boolean
+  promo: boolean | null,
+  active: boolean | null
 }
 
 export type Rating = 0 | 1 | 2 | 3 | 4 | 5;

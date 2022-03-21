@@ -1,19 +1,21 @@
 import React from 'react';
 import { Rating } from '../../../models/products.interface';
+import { arrRange } from '../../../../utlis/utils';
 import starIconFull from '../../../../assets/star-full.svg';
 import starIconEmpty from '../../../../assets/star-empty.svg';
 
-const StarRating = ({ rating }: { rating: Rating }) => {
-  const starEmpty = <img src={starIconEmpty} alt='Empty star icon' />;
-  const starFull = <img src={starIconFull} alt='Filled star icon' />;
+const stars = arrRange(5);
 
+const StarRating = ({ rating }: { rating: Rating }) => {
   return (
     <>
-      {[...Array(5)].map((_, index) => {
-        const content = index <= rating ? starFull : starEmpty;
+      {stars.map((star, index): JSX.Element => {
+        const content = index <= rating
+          ? <img src={starIconFull} alt='Filled star icon' />
+          : <img src={starIconEmpty} alt='Empty star icon' />;
 
         return (
-          <React.Fragment key={index}>
+          <React.Fragment key={star}>
             {content}
           </React.Fragment>
         );

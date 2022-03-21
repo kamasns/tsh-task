@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import React, { useState, useEffect, ChangeEvent } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { IItem, IMeta, IParams, IProducts } from './models/products.interface';
 import Header from './components/header/Header';
 import Product from './components/product/Product';
@@ -13,11 +12,13 @@ import './products.scss';
 export const Products = () => {
   const [term, setTerm] = useState<string>('');
   const [debouncedTerm, setDebouncedTerm] = useState<string>(term);
-  const [promo, setPromo] = useState<boolean>(false);
-  const [active, setActive] = useState<boolean>(false);
+  const [promo, setPromo] = useState<boolean | null>(null);
+  const [active, setActive] = useState<boolean | null>(null);
   const [results, setResults] = useState<IProducts>();
   const [paginationConfig, setPaginationConfig] = useState<IMeta>();
   const [paginationPage, setPaginationPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [fetchFail, setFetchFail] = useState<boolean>(false);
 
   const ITEM_LIMIT = 8; // change this value to a lower value to test pagination
 
@@ -30,22 +31,25 @@ export const Products = () => {
   };
 
   const getDataFromApi = async (params: IParams) => {
-    const { data } = await axios.get('https://join-tsh-api-staging.herokuapp.com/products', {
-      params
-    });
-    setResults(data);
-    setPaginationConfig(data.meta);
+    setLoading(true);
+    try {
+      const { data } = await axios.get('https://join-tsh-api-staging.herokuapp.com/products', {
+        params
+      });
+      setResults(data);
+      setPaginationConfig(data.meta);
+      setLoading(false);
+      setFetchFail(false);
+    } catch (err) {
+      console.error('Cannot fetch data.', err);
+      setFetchFail(true);
+      setLoading(false);
+    }
   };
-
-  useEffect(() => {
-    void getDataFromApi(params);
-  }, []);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);
-      setActive(active);
-      setPromo(promo);
       setPaginationPage(1);
     }, 750);
 
@@ -58,21 +62,31 @@ export const Products = () => {
     void getDataFromApi(params);
   }, [debouncedTerm, active, promo, paginationPage]);
 
-  const handlePromoCheckbox = () => {
-    setPromo(!promo);
+  const handlePromoCheckbox = ():void => {
+    if (promo) {
+      setPromo(null);
+    } else {
+      setPromo(true);
+    }
+    setPaginationPage(1);
   };
 
-  const handleActiveCheckbox = () => {
-    setActive(!active);
+  const handleActiveCheckbox = ():void => {
+    if (active) {
+      setActive(null);
+    } else {
+      setActive(true);
+    }
+    setPaginationPage(1);
   };
 
-  const handleSearchTerm = (term: string) => {
+  const handleSearchTerm = (term: string):void => {
     setTerm(term);
   };
 
   const renderedProducts = results?.items.length === 0
     ? <NotFound />
-    : results?.items.map((item: IItem) => {
+    : results?.items.map((item: IItem): JSX.Element => {
       return (
         <Product
           key={item.id}
@@ -99,17 +113,19 @@ export const Products = () => {
         handleSearchTerm={handleSearchTerm}
       />
       <div className='products-wrapper'>
-        {renderedProducts
-          ? (
-            <div className='container'>
-              <div className='row'>
-                {renderedProducts}
-              </div>
-            </div>
-          )
-          : <Loader />
-        }
-        {paginationConfig && paginationConfig.totalPages > 1
+        <div className='container'>
+          {fetchFail
+            ? <div className='error'>Cannot fetch data.</div>
+            : loading
+              ? <Loader />
+              : (
+                <div className='row'>
+                  {renderedProducts}
+                </div>
+              )
+          }
+        </div>
+        {paginationConfig && paginationConfig.totalPages > 1 && !fetchFail
           ? (
             <Pagination
               totalPages={paginationConfig.totalPages}

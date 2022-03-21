@@ -7,7 +7,6 @@ const Modal = ({ children }: { children: ReactNode }) => {
 
   if (!portalDiv) return null;
 
-  console.dir(portalDiv);
   return (
     createPortal(
       <div className='modal'>

@@ -33,6 +33,11 @@ iframe {
   display: none;
 }
 
+.error {
+  @include normal-font;
+  color: red;
+}
+
 h2 {
   font-size: 30px;
   line-height: 1.333;
